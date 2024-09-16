@@ -1,5 +1,21 @@
 const mongoose=require("mongoose")
 
+
+const replySchema = new mongoose.Schema(
+  {
+    text: { type: String, required: true },
+    sender: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "UserData",
+      required: true,
+    },
+    replies: [this],
+  },
+  { timestamps: true }
+);
+
+
+
 const MessageSchema = new mongoose.Schema(
   {
     text: { type: String, required: true },
@@ -13,22 +29,11 @@ const MessageSchema = new mongoose.Schema(
       ref: "UserData",
       required: true,
     },
-
-    replies: [
-      {
-        text: { type: String, required: true },
-        sender: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "UserData",
-          required: true,
-        },
-        createdAt: { type: Date, default: Date.now },
-      },
-    ],
-    createdAt: { type: Date, default: Date.now }
+    replies: [replySchema],
+    createdAt: { type: Date, default: Date.now },
   },
   {
-    versionKey: false,
+    timestamps: true,
   }
 );
 
