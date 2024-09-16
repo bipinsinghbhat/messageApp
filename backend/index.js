@@ -13,6 +13,10 @@ app.get("/",(req,res)=>{
       res.send("hello world")
 })
 
+app.get("/pogo",(req,res)=>{
+    res.send("pogo channel")
+})
+
 
 app.use("/auth",authRouter)
 app.use("/users",userRouter)
