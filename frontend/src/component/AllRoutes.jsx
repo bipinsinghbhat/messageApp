@@ -8,10 +8,17 @@ import PrivateRoutes from "./PrivateRoutes"
 const AllRoutes=()=>{
     return (
       <Routes>
-        <Route path={"/login"} element={<Login/>} />
-        <Route path={"/chat/:chatId"} element={<ChatPage/>} />
-        <Route path={"/register"} element={<Register/>} />
-        <Route path={"/"} element={ <PrivateRoutes><HomePage/></PrivateRoutes> }/>
+        <Route path={"/login"} element={<Login />} />
+        <Route path="/chat/:chatId/:userId" element={<ChatPage />} />
+        <Route path={"/register"} element={<Register />} />
+        <Route
+          path={"/"}
+          element={
+            <PrivateRoutes>
+              <HomePage />
+            </PrivateRoutes>
+          }
+        />
       </Routes>
     );
 }

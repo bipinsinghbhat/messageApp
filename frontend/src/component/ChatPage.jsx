@@ -14,12 +14,12 @@ const ChatPage = () => {
   const [editingMessage, setEditingMessage] = useState(null);
   const [editText, setEditText] = useState("");
 
-  // Fetch chat messages
+  
   const fetchMessages = async () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5000/messages/user/${chatId}`,
+        `http://localhost:5000/messages/user/${chatId}/${currentuserId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

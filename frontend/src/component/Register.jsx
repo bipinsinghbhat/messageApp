@@ -32,7 +32,7 @@ const Register = () => {
       await axios.post("http://localhost:5000/auth/register", formState);
       alert("User registered successfully");
       console.log("formState", formState);
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       console.error(error);
       if ((error.response.data.error = "User already exists")) {

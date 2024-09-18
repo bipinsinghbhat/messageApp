@@ -73,7 +73,7 @@ const HomePage = () => {
   };
 
   const MessagePage = (chatId) => () => {
-    navigate(`/chat/${chatId}`);
+     navigate(`/chat/${chatId}/${currentuserId}`);
   };
 
   return (

@@ -19,9 +19,8 @@ messageRouter.post("/send", authentication, async (req, res) => {
   }
 });
 
-messageRouter.get("/user/:chatId", authentication, async (req, res) => {
-  const { chatId } = req.params;
-  const userId = req.body.userId; 
+messageRouter.get("/user/:chatId/:userId", authentication, async (req, res) => {
+  const { chatId, userId } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(chatId)) {
     return res.status(400).json({ error: "Invalid chat ID" });
@@ -40,6 +39,7 @@ messageRouter.get("/user/:chatId", authentication, async (req, res) => {
     res.status(500).json({ error: "Error fetching messages" });
   }
 });
+
 
 
 
