@@ -1,9 +1,11 @@
 const express=require("express")
 const app=express()
+const cors = require("cors");
 const dotenv=require("dotenv")
 const connection = require("./db")
 dotenv.config()
 app.use(express.json())
+app.use(cors());
 const PORT=process.env.PORT||6000
 const {authRouter}=require("./routes/auth.routes")
 const { userRouter } = require("./routes/user.routes")
@@ -13,9 +15,7 @@ app.get("/",(req,res)=>{
       res.send("hello world")
 })
 
-app.get("/pogo",(req,res)=>{
-    res.send("pogo channel")
-})
+
 
 
 app.use("/auth",authRouter)

@@ -19,6 +19,33 @@ messageRouter.post("/send", authentication, async (req, res) => {
   }
 });
 
+messageRouter.get("/user/:chatId", authentication, async (req, res) => {
+  const { chatId } = req.params;
+  const userId = req.body.userId; 
+
+  if (!mongoose.Types.ObjectId.isValid(chatId)) {
+    return res.status(400).json({ error: "Invalid chat ID" });
+  }
+
+  try {
+    const messages = await MessageModel.find({
+      $or: [
+        { sender: userId, receiver: chatId },
+        { sender: chatId, receiver: userId },
+      ],
+    });
+
+    res.json(messages);
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching messages" });
+  }
+});
+
+
+
+
+
+
 messageRouter.get("/", authentication, async (req, res) => {
   const userId = req.body.userId;
   console.log("Fetching messages for sender:", userId);
@@ -26,6 +53,7 @@ messageRouter.get("/", authentication, async (req, res) => {
     const messages = await MessageModel.find({
       $or: [{ sender: userId }, { receiver: userId }],
     });
+   
     console.log("Messages with staticUserId:", messages);
     res.json(messages);
   } catch (error) {

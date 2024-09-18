@@ -1,0 +1,108 @@
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(225, 184, 234);
+    border: 2px solid black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.loginForm {
+    margin-top: 30px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    max-height: 400px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.inputField {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(234, 222, 222);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.inputField:focus {
+    outline: none;
+    border-color: #5e8dbe;
+    box-shadow: 0 0 5px rgba(96, 134, 175, 0.5);
+}
+
+.submitBtn {
+    width: 40%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+}
+
+.submitBtn:hover {
+    background-color: #5980aa;
+}
+
+.registerBtn {
+    margin-top: 15px;
+    width: 40%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+}
+
+.registerBtn:hover {
+    background-color: #5980aa;
+}
+
+@media (max-width: 768px) {
+    .loginForm {
+        width: 80%;
+    }
+}
+
+@media (max-width: 576px) {
+    .loginForm {
+        width: 90%;
+    }
+
+    .registerBtn {
+        width: 80%;
+    }
+
+    .submitBtn {
+        width: 80%;
+    }
+}
+
+@media (min-width: 786px) and (max-width: 1024px) {
+    .loginForm {
+        width: 60%;
+    }
+
+    .registerBtn {
+        width: 40%;
+    }
+
+    .submitBtn {
+        width: 40%;
+    }
+}

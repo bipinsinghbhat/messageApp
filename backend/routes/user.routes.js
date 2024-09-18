@@ -7,6 +7,7 @@ userRouter.get("/",authentication,async(req,res)=>{
     try {
            const users=await UserModel.find()
            res.json(users)
+           
     } catch (error) {
         res.status(500).json({error:"Error fetching users"})
     }
